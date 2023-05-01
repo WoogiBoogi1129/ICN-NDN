@@ -14,4 +14,3 @@ ICN-NDN 자료정리 및 공부
 2. NDN Sim 설치 및 테스트 진행
 3. NDN 관련 논문 검색 후 스터디 예정
 4. 연구실 논문 분석 및 정리
-![image](https://user-images.githubusercontent.com/110087545/235477924-ee5cb112-7835-4582-bba5-af08e9c95fd4.png)
