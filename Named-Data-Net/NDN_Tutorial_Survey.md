@@ -63,3 +63,10 @@ link : https://www.youtube.com/watch?v=8-uzOf77Wag
 - 어플리케이션 성능 측정
     + Fetching Delay : 관심사 패킷을 보낸 후 요청된 데이터 패킷이 수신될 때까지의 시간
     + Throughput
+- 네트워크 성능 측정
+    + 관심사 및 데이터 패킷 전송 수
+        + 각 노드 당
+        + 각 링크 당
+    + 관심사 및 데이터 패킷이 통과하는 Hop 수
+        + 관심사 반영 집계 및 데이터 캐싱
+        
