@@ -48,3 +48,18 @@ link : https://www.youtube.com/watch?v=8-uzOf77Wag
             - 관심사 이름 예시 : /chat/friends/state-vector
             - 관심사는 멀티캐스트 기반의 그룹이다. (단, 데이터 응답을 하지는 않는다.)
         * Cathy는 사진을 가져오기 위해 관심사를 전송한다.
+    + NDN기반 APP을 실행할 때 각 참가자들은 초기작업을 단계별로 진행한다.
+        - 앱, 연결된 인증서, 앱의 신뢰 앵커 및 보안 정책에서 이름 가져오기.
+            - APP : S/W 배포 채널을 통한 소스코드 인증
+            - Alice는 채팅을 시작하고 신뢰 앵커와 정책을 설정한다.
+            - Alice는 Bob과 Cathy를 초대한다.
+                - 신뢰 앵커가 서명한 인증서 발급 및 보안 정책을 전달한다.
+        - 고지사항 : NDN 보안 솔루션을 평가하는 데 ndnSIM 또는 Mini-NDN은 사용할 수 없다.
+
+4. 현재 NDN관련 툴의 대표적인 기능 : 성능평가
+- 전송 성능 측정 : DataSet Namespace Update Delay
+    + Sync Interst 손실율
+    + 각 노드의 데이터 생성 및 수신 시간
+- 어플리케이션 성능 측정
+    + Fetching Delay : 관심사 패킷을 보낸 후 요청된 데이터 패킷이 수신될 때까지의 시간
+    + Throughput
