@@ -69,4 +69,15 @@ link : https://www.youtube.com/watch?v=8-uzOf77Wag
         + 각 링크 당
     + 관심사 및 데이터 패킷이 통과하는 Hop 수
         + 관심사 반영 집계 및 데이터 캐싱
-        
+    + 보류 중인 관심 테이블
+        + 사이즈
+        + PIT 입력 가능 수명 분포
+        + 만족 / 불만족 관심사
+        + Packet Queueing Delay (Congestion Control의 성능을 확인할 수 있다.)
+            + Queue Size를 피드백하여 효과적인 Congestion Control이 가능하다.
+- 캐싱에 대한 성능 측정
+    + Cache hit-ratio (캐시 적중률)
+        + 노드 단위
+        + 네임스페이스 단위
+    + Cache 공간의 점유율
+        + 캐시 관리 설계가 캐시의 내용을 미리 제거하는 경우를 측정한다.
