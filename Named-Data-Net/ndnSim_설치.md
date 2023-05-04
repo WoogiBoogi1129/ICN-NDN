@@ -76,5 +76,21 @@ Lastest Update : 2023.05.04.
     $ ./waf configure --disable-python --enable-examples
     $ ./waf
     ```   
-    * 해당 작업은 시간이 꽤 오래 걸린다. Ubuntu가 보조화면으로 전환되지 않게 설정하고 밥먹으러 다녀오면 될 것 같다.
-3. 시나리오 예제
+    * 해당 작업은 시간이 꽤 오래 걸린다. Ubuntu가 보조화면으로 전환되지 않게 설정하고 밥먹으러 다녀오면 될 것 같다.   
+    ![image](https://user-images.githubusercontent.com/110087545/236212350-b340cffa-e346-4377-95e8-56be4f6deb30.png)   
+    사진처럼 나오면 성공이다.
+    4. 설치 완료 확인
+    - 기본적인 Complie
+    ```
+    ./waf --run=ndn-simple
+    or
+    ./waf --run=ndn-grid
+
+    ./waf --run=[실행할 파일]
+
+    visualizer를 이용하여 코드를 실행시킬 수도 있다.
+    ./waf --run=[실행할 파일] --vis
+    ./waf --run=ndn-simple --vis
+    ```
+    - 성공적으로 실행했을 경우  
+    ![image](https://user-images.githubusercontent.com/110087545/236213885-7fb367d4-0da2-443a-b5ff-21c23740df43.png)
