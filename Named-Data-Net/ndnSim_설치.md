@@ -34,12 +34,46 @@ Lastest Update : 2023.05.04.
     ```
     $ dpkg -s libboost-dev | grep 'Version' // version이 존재하지 않는다면 아래 명령어 진행   
     $ sudo apt-get update
-    $ wget -c 'https://sourceforge.net/projects/boost/files/boost/1.73.0/boost_1_73_0.tar.bz2'
-    $ tar xvf boost_1_73_0.tar.bz2
-    $ cd boost_1_73_0.tar.bz2
-    $ ./bootstrap.sh
-    $ ./b2 install
+    $ sudo apt upgrade libboost-all-dev
     ```
     - OpenSSL 1.0.2 이상
+    ```
+    $ openssl version // 설치 안되어 있으면 아래 명령어 실행   
+    $ wget https://www.openssl.org/source/openssl-1.1.1o.tar.gz --no-check-certificate
+    $ tar xvfz openssl-1.1.1p.tar.gz
+    $ cd openssl-1.1.1o
+    $ ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+    $ mv /usr/bin/openssl /usr/bin/openssl_bak
+    $ make && make install
+    $ ln -s /usr/local/ssl/lib/libssl.so.1.1 /usr/lib64/libssl.so.1.1
+    $ ln -s /usr/local/ssl/lib/libcrypto.so.1.1 /usr/lib64/libcrypto.so.1.1
+    $ ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl
+    ```
     - SQLite 3.x 이상
+    ```
+    $ sudo apt install sqlite3 // 명령어 실행
+    ```   
+    지금까지 기본 요구사항을 충족시켰다. 이제는 실제로 ndnSIM을 설치해야한다.   
+    3. ndnSIM 설치
+    ```
+    $ sudo apt install build-essential libsqlite3-dev libboost-all-dev libssl-dev git python3-setuptools castxml // 명령어 실행
+    ```
+    - 이후 NS-3의 Python 바인딩을 사용하려는 경우 여러가지 종속성을 추가로 설치해야한다. 그 중 Visualizer를 설치하기 위해서는 아래 명령어를 실행해야한다.
+    ```
+    $ sudo apt install gir1.2-goocanvas-2.0 gir1.2-gtk-3.0 libgirepository1.0-dev python3-dev python3-gi python3-gi-cairo python3-pip python3-pygraphviz python3-pygccxml
+    $ sudo pip3 install kiwi
+    ```
+    - 본격적인 ndnSIM Source 다운로드
+    ```
+    $ mkdir ndnSIM
+    $ cd ndnSIM
+    $ git clone https://github.com/named-data-ndnSIM/ns-3-dev.git ns-3
+    $ git clone https://github.com/named-data-ndnSIM/pybindgen.git pybindgen
+    $ git clone --recursive https://github.com/named-data-ndnSIM/ndnSIM.git ns-3/src/ndnSIM   
+    
+    git에서 ndnSIM 그리고 ns-3와 관련된 리포지토리를 clone해온 후 ndnSIM Compile 진행
+    $ cd ns-3
+    $ ./waf configure --disable-python --enable-examples
+    $ ./waf
+    ```
 3. 시나리오 예제
