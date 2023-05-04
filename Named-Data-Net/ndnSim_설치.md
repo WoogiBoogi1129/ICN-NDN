@@ -15,8 +15,8 @@ Lastest Update : 2023.05.04.
     2. ndnSIM을 설치하기 전 기본 요구사항 스펙에 대한 조건을 만족시킨다.
     - GCC 7.4 버젼 이상
     ```
-    gcc --version   
-    명령어를 입력한 이후, 해당 디렉토리가 없다는 문제가 발생하였을 때,   
+    gcc --version // gcc가 깔려있지 않을 시, 아래 명령어 진행
+    
     $ sudo apt update
     $ sudo apt install build-essential
     ```
