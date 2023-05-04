@@ -1,0 +1,51 @@
+1b50.242c: \SystemRoot\System32\ntdll.dll:
+1b50.242c:     CreationTime:    2023-04-12T02:47:32.425277600Z
+1b50.242c:     LastWriteTime:   2023-04-12T02:47:32.565637300Z
+1b50.242c:     ChangeTime:      2023-04-12T08:50:50.497651400Z
+1b50.242c:     FileAttributes:  0x20
+1b50.242c:     Size:            0x1ef580
+1b50.242c:     NT Headers:      0xe8
+1b50.242c:     Timestamp:       0x2f715b17
+1b50.242c:     Machine:         0x8664 - amd64
+1b50.242c:     Timestamp:       0x2f715b17
+1b50.242c:     Image Version:   10.0
+1b50.242c:     SizeOfImage:     0x1f8000 (2064384)
+1b50.242c:     Resource Dir:    0x186000 LB 0x70508
+1b50.242c:     [Version info resource found at 0xd8! (ID/Name: 0x1; SubID/SubName: 0x409)]
+1b50.242c:     [Raw version resource data: 0x1860f0 LB 0x380, codepage 0x0 (reserved 0x0)]
+1b50.242c:     ProductName:     Microsoft® Windows® Operating System
+1b50.242c:     ProductVersion:  10.0.19041.2788
+1b50.242c:     FileVersion:     10.0.19041.2788 (WinBuild.160101.0800)
+1b50.242c:     FileDescription: NT Layer DLL
+1b50.242c: \SystemRoot\System32\kernel32.dll:
+1b50.242c:     CreationTime:    2023-04-12T02:47:40.466818600Z
+1b50.242c:     LastWriteTime:   2023-04-12T02:47:40.529554000Z
+1b50.242c:     ChangeTime:      2023-04-12T08:50:47.982622400Z
+1b50.242c:     FileAttributes:  0x20
+1b50.242c:     Size:            0xbca88
+1b50.242c:     NT Headers:      0xf8
+1b50.242c:     Timestamp:       0x6024807a
+1b50.242c:     Machine:         0x8664 - amd64
+1b50.242c:     Timestamp:       0x6024807a
+1b50.242c:     Image Version:   10.0
+1b50.242c:     SizeOfImage:     0xbf000 (782336)
+1b50.242c:     Resource Dir:    0xbd000 LB 0x520
+1b50.242c:     [Version info resource found at 0x90! (ID/Name: 0x1; SubID/SubName: 0x409)]
+1b50.242c:     [Raw version resource data: 0xbd0b0 LB 0x3a4, codepage 0x0 (reserved 0x0)]
+1b50.242c:     ProductName:     Microsoft® Windows® Operating System
+1b50.242c:     ProductVersion:  10.0.19041.2788
+1b50.242c:     FileVersion:     10.0.19041.2788 (WinBuild.160101.0800)
+1b50.242c:     FileDescription: Windows NT BASE API Client DLL
+1b50.242c: \SystemRoot\System32\KernelBase.dll:
+1b50.242c:     CreationTime:    2023-04-12T02:47:33.799910800Z
+1b50.242c:     LastWriteTime:   2023-04-12T02:47:33.893449900Z
+1b50.242c:     ChangeTime:      2023-04-12T08:50:50.153983000Z
+1b50.242c:     FileAttributes:  0x20
+1b50.242c:     Size:            0x2dc408
+1b50.242c:     NT Headers:      0x100
+1b50.242c:     Timestamp:       0x62e593d6
+1b50.242c:     Machine:         0x8664 - amd64
+1b50.242c:     Timestamp:       0x62e593d6
+1b50.242c:     Image Version:   10.0
+1b50.242c:     SizeOfImage:     0x2da000 (2990080)
+1b50.242c:     Resource Dir:    0x2b0000 LB 0x548
