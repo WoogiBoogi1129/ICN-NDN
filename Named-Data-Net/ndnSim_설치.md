@@ -75,5 +75,6 @@ Lastest Update : 2023.05.04.
     $ cd ns-3
     $ ./waf configure --disable-python --enable-examples
     $ ./waf
-    ```
+    ```   
+    * 해당 작업은 시간이 꽤 오래 걸린다. Ubuntu가 보조화면으로 전환되지 않게 설정하고 밥먹으러 다녀오면 될 것 같다.
 3. 시나리오 예제
