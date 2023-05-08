@@ -76,7 +76,7 @@ Lastest Update : 2023.05.04.
     $ ./waf configure --disable-python --enable-examples
     $ ./waf
     ```   
-    * 해당 작업은 시간이 꽤 오래 걸린다. Ubuntu가 보조화면으로 전환되지 않게 설정하고 밥먹으러 다녀오면 될 것 같다.   
+    * 해당 작업에서 상당히 많은 시간을 소요한다. (약 1시간)
     ![image](https://user-images.githubusercontent.com/110087545/236212350-b340cffa-e346-4377-95e8-56be4f6deb30.png)   
     사진처럼 나오면 성공이다.
     4. 설치 완료 확인
