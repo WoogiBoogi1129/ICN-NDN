@@ -57,7 +57,7 @@
 
 4. 현재 NDN관련 툴의 대표적인 기능 : 성능평가
 - 전송 성능 측정 : DataSet Namespace Update Delay
-    + Sync Interest 손실율
+    + Sync Interest 손실률
     + 각 노드의 데이터 생성 및 수신 시간
 - 어플리케이션 성능 측정
     + Fetching Delay : 관심사 패킷을 보낸 후 요청된 데이터 패킷이 수신될 때까지의 시간
