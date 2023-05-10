@@ -1,6 +1,5 @@
-NDN_Tutorial 정리   
-link : https://www.youtube.com/watch?v=8-uzOf77Wag
-==================================================
+## NDN_Tutorial 정리   
+### link : https://www.youtube.com/watch?v=8-uzOf77Wag
 1. NDN의 기본적인 개념
 - NDN은 기본적으로 널리 알려진 네트워크 5계층에 있어 가운데 Internet Protocol 대신 Named-Data-Protocol로 바꾸는 것에 있다.   
 ![image](https://user-images.githubusercontent.com/110087545/235481669-406c8a07-d354-4095-b87b-19ac5f89e34c.png)
@@ -36,7 +35,7 @@ link : https://www.youtube.com/watch?v=8-uzOf77Wag
     + SVS 라이브러리는 아래 링크에서 다운 받아 실습할 수 있다. (차후 실습 후 정리 예정)   
     link : https://github.com/named-data/ndn-svs
 - 기존 아이디어
-    + Alice, Bob, Cathy가 분산 앱을 실행한다.
+    + Alice, Bob, Cathy가 배포 앱을 실행한다.
         * 모두 동기화 그룹에 가입한다.
     + 데이터를 생성하는 사용자 : 동기화 관심사를 보내 다른 사용자에게 알린다.
         * 데이터를 원하는 사용자는 데이터의 이름으로 가져온다.   
@@ -58,7 +57,7 @@ link : https://www.youtube.com/watch?v=8-uzOf77Wag
 
 4. 현재 NDN관련 툴의 대표적인 기능 : 성능평가
 - 전송 성능 측정 : DataSet Namespace Update Delay
-    + Sync Interst 손실율
+    + Sync Interest 손실률
     + 각 노드의 데이터 생성 및 수신 시간
 - 어플리케이션 성능 측정
     + Fetching Delay : 관심사 패킷을 보낸 후 요청된 데이터 패킷이 수신될 때까지의 시간
