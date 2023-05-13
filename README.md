@@ -1,9 +1,12 @@
 ICN-NDN 자료정리 및 공부
 =======================
-- 2023.05.01 업데이트
+- 2023.05.13 업데이트
 ---------------------
 1. NDN 관련 정보 조사
 - NDN 홈페이지 조사 https://named-data.net
+  - [NDN이란?](Named-Data-Net/NDN_Tutorial_Survey.md)
+  - [ndnSIM 설치 방법](Named-Data-Net/ndnSIM_Install.md)
+  - [ndnSIM 이론](Named-Data-Net/ndnSIM_survey.md)
 - ICNRG 관련 자료
   + RFC 7476 (was draft-irtf-icnrg-scenarios) (정독 요망)
   + RFC 7927 (was draft-irtf-icnrg-challenges) (정독 요망)
