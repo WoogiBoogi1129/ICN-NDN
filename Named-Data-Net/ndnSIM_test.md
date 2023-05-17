@@ -24,6 +24,22 @@
 
 2. 6-node bottle neck NDN network
     - 6-node bottle neck NDN network는 
+    1. 논문과 동일한 ndn Stack 으로 실험을 진행한다.
+    - Bandwidth : 1Mbps (router1과 router2 사이)
+    - Delay : 10 ms
+    - Data Packet Size : 1024
+    - Node's Queue Size : 10 chunk
+    - NDN Router's CS Cache Size : 10000 chunk
+    - CS Policy : LRU
+        1. ndn Stack 설정법
+        - [topo-6-node](Named-Data-Net\src\topologies\topo-6-node.txt) 에서 Bandwidth, Delay, Node's Queue Size 설정 가능
+        - [6node-interest-100](Named-Data-Net\src\ndnSim-exam\6node-interest-100.cpp) 에서 Data Pcaket Size, NDN Router's CS Cache Size, CS Policy 설정 가능
+        ```
+        ndnHelper.setPolicy("nfd::cs::lru"); // CS Policy 설정
+        ndnHelper.setCsSize(10000); // NDN Router's CS Cache Size
+        producerHelper.SetAttribute("PayloadSize", StringValue("1024")); // Data Pcaket Size
+        ```
+        - interest 크기를 100~900까지 100 단위로 실험을 진행하였다.
 
 3. 9-node grid NDN network
     - 9-node grid NDN network는 ndnSIM의 ndn-grid-topo-plugin.cpp 파일을 기반으로 실습을 진행할 예정이다.
@@ -33,66 +49,6 @@
     - Node's Routing Policy : Best-route
     - Node's Queue Size : 10 chunk
         1. ndn Stack 설정법
-        ```
-        # topo-grid-3x3.txt
-        #   /--------\	    /-\	        /-\
-        #   |Consumer|<---->| |<------->| |
-        #   \--------/	    \-/	        \-/
-        #       ^   	     ^ 	         ^
-        #       |            |           |   1Mbps/10ms delay
-        #       v            v           v
-        #      /-\          /-\         /-\
-        #      | |<-------->| |<------->| |
-        #      \-/          \-/         \-/
-        #       ^   	     ^ 	         ^
-        #       |            |           |
-        #       v            v           v
-        #      /-\	    /-\	     /--------\
-        #      | |<-------->| |<---->|Producer|
-        #      \-/          \-/      \--------/
-
-        # any empty lines and lines starting with '#' symbol is ignored
-        #
-        # The file should contain exactly two sections: router and link, each starting with the corresponding keyword
-        #
-        # router section defines topology nodes and their relative positions (e.g., to use in visualizer)
-        router
-
-        # each line in this section represents one router and should have the following data
-        # node  comment     yPos    xPos
-        Node0   NA          3       1
-        Node1   NA          3       2
-        Node2   NA          3       3
-        Node3   NA          2       1
-        Node4   NA          2       2
-        Node5   NA          2       3
-        Node6   NA          1       1
-        Node7   NA          1       2
-        Node8   NA          1       3
-        # Note that `node` can be any string. It is possible to access to the node by name using Names::Find, see examples.
-
-        # link section defines point-to-point links between nodes and characteristics of these links
-        link
-
-        # Each line should be in the following format (only first two are required, the rest can be omitted)
-        # srcNode   dstNode     bandwidth   metric  delay   queue
-        # bandwidth: link bandwidth
-        # metric: routing metric
-        # delay:  link delay
-        # queue:  MaxPackets for transmission queue on the link (both directions)
-        Node0       Node1       1Mbps       1       10ms    10
-        Node0       Node3       1Mbps       1       10ms    10
-        Node1       Node2       1Mbps       1       10ms    10
-        Node1       Node4       1Mbps       1       10ms    10
-        Node2       Node5       1Mbps       1       10ms    10
-        Node3       Node4       1Mbps       1       10ms    10
-        Node3       Node6       1Mbps       1       10ms    10
-        Node4       Node5       1Mbps       1       10ms    10
-        Node4       Node7       1Mbps       1       10ms    10
-        Node5       Node8       1Mbps       1       10ms    10
-        Node6       Node7       1Mbps       1       10ms    10
-        Node7       Node8       1Mbps       1       10ms    10
-        ```
         - Bandwidth, Delay, Node's Queue Size는 시나리오파일의 Topology를 설정해주는 [topo-grid-3x3](Named-Data-Net\src\topologies\topo-grid-3x3.txt) 파일을 통해 설정할 수 있다.
 
         - Node's Routing Policy 는 ndn 시나리오 파일에서 아래 내용을 통해 바꿀 수 있다.
@@ -102,4 +58,6 @@
         [9node-interest](Named-Data-Net\src\ndnSim-exam\9node-interest-100.cpp) 참고
 
         - interest 생성 크기를 100~1100 까지 100 단위로 실험을 진행하였다.
-        
+
+4. 실험 결과
+    - Report.txt
