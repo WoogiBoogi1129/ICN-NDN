@@ -1,7 +1,4 @@
-ICN-NDN 자료정리 및 공부
-=======================
-- 2023.05.13 업데이트
----------------------
+# ICN-NDN 자료정리 및 공부
 1. NDN 관련 정보 조사
 - NDN 홈페이지 조사 https://named-data.net
   - [NDN이란?](Named-Data-Net/NDN_Tutorial_Survey.md)
