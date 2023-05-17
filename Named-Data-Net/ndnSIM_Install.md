@@ -9,6 +9,8 @@ ndnSIM 설치 및 예제 실습
     1. ndnSIM 설치를 위해 Virtual Box에 Ubuntu 20.04를 설치한다.   
     ![image](https://user-images.githubusercontent.com/110087545/236179857-23b58c66-0fac-4b55-9e1d-cc1bb3671fe2.png)   
     (다운로드 완료된 리눅스 20.04)
+
+    
     * 추가 : 간혹 리눅스 설치 직후 Terminal이 열리지 않는 경우가 있다. 이런 경우, 리눅스 내 'Setting'에 가서 Region & Language를 English(United State)가 아닌 다른 국가로 변경 후, Log Out & Log In을 진행하면 해당 문제를 해결할 수 있다.
     2. ndnSIM을 설치하기 전 기본 요구사항 스펙에 대한 조건을 만족시킨다.
     - GCC 7.4 버젼 이상
