@@ -32,7 +32,7 @@
     - NDN Router's CS Cache Size : 10000 chunk
     - CS Policy : LRU
         1. ndn Stack 설정법
-        - [topo-6-node](Named-Data-Net/src/topologies/topo-6-node.txt) 에서 Bandwidth, Delay, Node's Queue Size 설정 가능
+        - [topo-6-node](Named-Data-Net/src/topologies/topo-6-node.md) 에서 Bandwidth, Delay, Node's Queue Size 설정 가능
         - [6node-interest-100](Named-Data-Net\src\ndnSim-exam\6node-interest-100.cpp) 에서 Data Pcaket Size, NDN Router's CS Cache Size, CS Policy 설정 가능
         ```
         ndnHelper.setPolicy("nfd::cs::lru"); // CS Policy 설정
@@ -49,7 +49,7 @@
     - Node's Routing Policy : Best-route
     - Node's Queue Size : 10 chunk
         1. ndn Stack 설정법
-        - Bandwidth, Delay, Node's Queue Size는 시나리오파일의 Topology를 설정해주는 [topo-grid-3x3](Named-Data-Net\src\topologies\topo-grid-3x3.txt) 파일을 통해 설정할 수 있다.
+        - Bandwidth, Delay, Node's Queue Size는 시나리오파일의 Topology를 설정해주는 [topo-grid-3x3](Named-Data-Net\src\topologies\topo-grid-3x3.md) 파일을 통해 설정할 수 있다.
 
         - Node's Routing Policy 는 ndn 시나리오 파일에서 아래 내용을 통해 바꿀 수 있다.
         ```
