@@ -1,3 +1,4 @@
+```
 # topo-grid-3x3.txt
 #   /--------\	    /-\	        /-\
 #   |Consumer|<---->| |<------->| |
@@ -56,3 +57,4 @@ Node4       Node7       1Mbps       1       10ms    10
 Node5       Node8       1Mbps       1       10ms    10
 Node6       Node7       1Mbps       1       10ms    10
 Node7       Node8       1Mbps       1       10ms    10
+```
