@@ -4,7 +4,7 @@ ndnSIM 설치 및 예제 실습
 - 소개
     + NS-3 네트워크 시뮬레이터 기반으로 등장함.
     + NDN 관련 시뮬레이션 기반 실험을 수행하기 위한 오픈 소스 공용 프레임워크임.
-    + NDN 연구 현황과 함께 발전중임.
+    + NDN 연구 현황과 함께 발전중임.  
 2. ndnSIM 시작하기(참고 링크 : https://ndnsim.net/current/getting-started.html)
     1. ndnSIM 설치를 위해 Virtual Box에 Ubuntu 20.04를 설치한다.   
     ![image](https://user-images.githubusercontent.com/110087545/236179857-23b58c66-0fac-4b55-9e1d-cc1bb3671fe2.png)   
@@ -73,8 +73,7 @@ ndnSIM 설치 및 예제 실습
     $ cd ns-3
     $ ./waf configure --disable-python --enable-examples
     $ ./waf
-    ```   
-    * 해당 작업은 시간이 꽤 오래 걸린다. Ubuntu가 보조화면으로 전환되지 않게 설정하고 밥먹으러 다녀오면 될 것 같다.   
+    ```     
     ![image](https://user-images.githubusercontent.com/110087545/236212350-b340cffa-e346-4377-95e8-56be4f6deb30.png)   
     사진처럼 나오면 성공이다.
     4. 설치 완료 확인
