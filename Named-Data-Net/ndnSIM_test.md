@@ -60,4 +60,11 @@
         - interest 생성 크기를 100~1100 까지 100 단위로 실험을 진행하였다.
 
 4. 실험 결과
+    - 여러개의 시나리오 파일을 한번에 실행시키기 위하여 bash 스크립트를 작성하여 시나리오 파일을 동작 시켰다. - [bash script](Named-Data-Net\src\Auto-Excution.sh)
+    - bash script는 아래와 같이 동작시킨다.
+    ```
+    // 위치는 ns-3 폴더에서 실행
+    $ chmod +x Auto-Excution.sh
+    $ ./Auto-Excution.sh
+    ```
     - Report.txt
