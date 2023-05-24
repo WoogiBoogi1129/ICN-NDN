@@ -2,17 +2,22 @@
 - 해당 자료는 박상현, 임헌국."ndnSIM 기반 NDN 네트워크 구현 및 성능 평가"한국정보통신학회논문지26,5(2022):725-730. 내용을 참고하여 ndnSIM을 사용해본 결과를 나타낸다.
 
 1. ndnSIM log 파일 생성하기
-    - 다양한 ndnSIM 시나리오를 실험하여 ndn 노드에서 전달하는 Interest/Data 패킷의 속도 및 패킷의 수 등의 데이터를 얻기 위해 데이터를 추출할 ndnSIM 시나리오 파일에 아래 코드를 추가한다.
+    1. ndnSIM은 시나리오 결과를 다양한 형태로 기록할 수 있는 기능을 가지고 있다. 아래는 ndnSIM에서 대표적으로 지원하는 Trace-Report 파일 생성을 설정하는 코드이다.
     ```
     ndn::L3RateTracer::InstallAll("rate-trace.txt", Seconds(1.0));
-    //ndn::CsTracer::InstallAll("cs-trace.txt", Seconds(1));
+    ndn::CsTracer::InstallAll("cs-trace.txt", Seconds(1));
     ndn::AppDelayTracer::InstallAll("app-delays-trace.txt");
     ```
-    <br/>
-    - 아래 사진은 ndn 시나리오 파일에 위 명령어를 추가한 모습이다.
-    <br/>
-    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/6dbb93ca-1f2c-4898-ba13-d6836fef066f)
-    <br/>
+    - 각 Tracer 함수들이 어떤 데이터를 기록해주는지는 아래의 링크별로 정리해두었다.
+        - [L3RateTracer]()
+        - [CsTracer]()
+        - [AppDelayRacer]()
+    
+    - Tracer 파일 생성 설정은 실행하고자 하는 시나리오 cpp파일에 추가하여 사용한다.
+
+    
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/d7b1f8b4-150e-496b-96e8-8b3b74a7ba1e)
+
     - 명령어를 추가한 후 아래 명령어를 순서대로 입력하여 변경사항을 build 한 후 실행한다.
     - 해당 실습에서는 'ndn-grid-topo-plugin-test1.cpp' 파일을 실습에 사용하였다.
     ```
