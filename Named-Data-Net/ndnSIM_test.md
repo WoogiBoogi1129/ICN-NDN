@@ -11,23 +11,22 @@
     - 각 Tracer 함수들이 어떤 데이터를 기록해주는지는 아래의 링크별로 정리해두었다.
         - [L3RateTracer]()
         - [CsTracer]()
-        - [AppDelayRacer]()
+        - [AppDelayTracer]()
     
     - Tracer 파일 생성 설정은 실행하고자 하는 시나리오 cpp파일에 추가하여 사용한다.
 
-    
+
     ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/d7b1f8b4-150e-496b-96e8-8b3b74a7ba1e)
 
-    - 명령어를 추가한 후 아래 명령어를 순서대로 입력하여 변경사항을 build 한 후 실행한다.
-    - 해당 실습에서는 'ndn-grid-topo-plugin-test1.cpp' 파일을 실습에 사용하였다.
+    - 명령어를 추가한 후 시나리오를 실행하여 Tracer Report 파일이 정상적으로 생성되었는지 확인해볼 수 있다.
     ```
     $ ./waf
-    $ ./waf --run=ndn-grid-topo-plugin.cpp
+    $ ./waf --run=6node-interest-100
     ```
-    - 명령어가 성공적으로 실행되었다면 /ndnSIM/ns-3 에 'rate-trace.txt', 'app-delays-trace.txt' 파일이 생성된 것을 확인할 수 있다.
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/c978b48a-09a7-4194-8c47-10f7bc6093ec)
+
 
 2. 6-node bottle neck NDN network
-    - 6-node bottle neck NDN network는 
     1. 논문과 동일한 ndn Stack 으로 실험을 진행한다.
     - Bandwidth : 1Mbps (router1과 router2 사이)
     - Delay : 10 ms
@@ -36,15 +35,33 @@
     - NDN Router's CS Cache Size : 10000 chunk
     - CS Policy : LRU
         1. ndn Stack 설정법
-        - [topo-6-node](Named-Data-Net/src/topologies/topo-6-node.md) 에서 Bandwidth, Delay, Node's Queue Size 설정 가능
-        - [6node-interest-100](Named-Data-Net\src\ndnSim-exam\6node-interest-100.cpp) 에서 Data Pcaket Size, NDN Router's CS Cache Size, CS Policy 설정 가능
-        ```
-        ndnHelper.setPolicy("nfd::cs::lru"); // CS Policy 설정
-        ndnHelper.setCsSize(10000); // NDN Router's CS Cache Size
-        producerHelper.SetAttribute("PayloadSize", StringValue("1024")); // Data Pcaket Size
-        ```
-        - interest 크기를 100~900까지 100 단위로 실험을 진행하였다.
+        - [topo-6-node.txt](Named-Data-Net/src/topologies/topo-6-node.md) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+            - Bandwidth
+            - Delay
+            - Node's Queue Size
 
+
+            ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/03c379c9-b767-4fcb-a8bb-a2a9f6cf5909)
+
+
+        - [6node-interest-100.cpp](Named-Data-Net\src\ndnSim-exam\6node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+            - Data Pcaket Size
+            - NDN Router's CS Cache Size
+            - CS Policy
+
+
+            ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/7be1530a-17a1-4d00-b849-fe05e089b62c)
+
+
+            ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/3cec37cc-d1c6-420d-84c7-8a36bb7e540f)
+
+
+        - 논문을 기반으로 한 실험에서는 초당 생성하는 interest의 개수를 100~900개 까지 100개 단위로 값을 변경하여 진행되었다.
+
+
+        ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/0efc254b-cdbf-4f8b-a022-3e39bc43926a)
+
+        
 3. 9-node grid NDN network
     - 9-node grid NDN network는 ndnSIM의 ndn-grid-topo-plugin.cpp 파일을 기반으로 실습을 진행할 예정이다.
     1. 논문과 동일한 ndn Stack 으로 실험을 진행한다.

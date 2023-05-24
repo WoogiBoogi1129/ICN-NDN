@@ -28,7 +28,7 @@ link
 # srcNode   dstNode     bandwidth   metric  delay   queue
 Src1        Rtr1        10Mbps      1        10ms    20
 Src2        Rtr1        10Mbps      1        10ms    20
-Rtr1        Rtr2        1Mbps       1        10ms    20
+Rtr1        Rtr2        1Mbps       1        10ms    10
 Dst1        Rtr2        10Mbps      1        10ms    20
 Dst2        Rtr2        10Mbps      1        10ms    20
 ```
