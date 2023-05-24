@@ -44,7 +44,7 @@
             ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/03c379c9-b767-4fcb-a8bb-a2a9f6cf5909)
 
 
-        - [6node-interest-100.cpp](Named-Data-Net\src\ndnSim-exam\6node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+        - [6node-interest-100.cpp](Named-Data-Net/src/ndnSim-exam/6node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
             - Data Pcaket Size
             - NDN Router's CS Cache Size
             - CS Policy
@@ -69,7 +69,7 @@
     - Node's Queue Size : 10 chunk
     - Node's Routing Policy : Best-route
         1. ndn Stack 설정법
-        - [topo-grid-3x3.txt](Named-Data-Net\src\topologies\topo-grid-3x3.md) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+        - [topo-grid-3x3.txt](Named-Data-Net/src/topologies/topo-grid-3x3.md) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
             - Bandwidth
             - Delay
             - Node's Queue Size
@@ -78,15 +78,15 @@
             ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/0c67d641-32d9-47b7-9830-462a6b78846c)
 
 
-        - [9node-interest-100](Named-Data-Net\src\ndnSim-exam\9node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+        - [9node-interest-100](Named-Data-Net/src/ndnSim-exam/9node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
             - Node's Routing Policy
 
 
             ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/13085061-9a50-4654-8e17-987433f5ec94)
 
-            
+
 4. 실험 결과
-    - 여러개의 시나리오 파일을 한번에 실행시키기 위하여 bash 스크립트를 작성하여 시나리오 파일을 동작 시켰다. - [bash script](Named-Data-Net\src\Auto-Excution.sh)
+    - 여러개의 시나리오 파일을 한번에 실행시키기 위하여 bash 스크립트를 작성하여 시나리오 파일을 동작 시켰다. - [bash script](Named-Data-Net/src/Auto-Excution.sh)
     - bash script는 아래와 같이 동작시킨다.
     ```
     // 위치는 ns-3 폴더에서 실행
