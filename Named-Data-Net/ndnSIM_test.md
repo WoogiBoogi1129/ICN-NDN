@@ -35,7 +35,7 @@
     - NDN Router's CS Cache Size : 10000 chunk
     - CS Policy : LRU
         1. ndn Stack 설정법
-        - [topo-6-node.txt](Named-Data-Net/src/topologies/topo-6-node.md) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+        - [topo-6-node.txt](src/topologies/topo-6-node.md) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
             - Bandwidth
             - Delay
             - Node's Queue Size
@@ -44,7 +44,7 @@
             ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/03c379c9-b767-4fcb-a8bb-a2a9f6cf5909)
 
 
-        - [6node-interest-100.cpp](Named-Data-Net/src/ndnSim-exam/6node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+        - [6node-interest-100.cpp](src/ndnSim-exam/6node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
             - Data Pcaket Size
             - NDN Router's CS Cache Size
             - CS Policy
