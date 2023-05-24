@@ -9,9 +9,9 @@
     ndn::AppDelayTracer::InstallAll("app-delays-trace.txt");
     ```
     <br/>
-        + 아래 사진은 ndn 시나리오 파일에 위 명령어를 추가한 모습이다.
-        <br/>
-        ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/6dbb93ca-1f2c-4898-ba13-d6836fef066f)
+    + 아래 사진은 ndn 시나리오 파일에 위 명령어를 추가한 모습이다.
+    <br/>
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/6dbb93ca-1f2c-4898-ba13-d6836fef066f)
     <br/>
     - 명령어를 추가한 후 아래 명령어를 순서대로 입력하여 변경사항을 build 한 후 실행한다.
     - 해당 실습에서는 'ndn-grid-topo-plugin-test1.cpp' 파일을 실습에 사용하였다.
