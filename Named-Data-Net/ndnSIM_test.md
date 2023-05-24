@@ -9,7 +9,7 @@
     ndn::AppDelayTracer::InstallAll("app-delays-trace.txt");
     ```
     <br/>
-    + 아래 사진은 ndn 시나리오 파일에 위 명령어를 추가한 모습이다.
+    - 아래 사진은 ndn 시나리오 파일에 위 명령어를 추가한 모습이다.
     <br/>
     ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/6dbb93ca-1f2c-4898-ba13-d6836fef066f)
     <br/>
