@@ -69,7 +69,7 @@
     - Node's Queue Size : 10 chunk
     - Node's Routing Policy : Best-route
         1. ndn Stack 설정법
-        - [topo-grid-3x3.txt](Named-Data-Net/src/topologies/topo-grid-3x3.md) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+        - [topo-grid-3x3.txt](src/topologies/topo-grid-3x3.md) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
             - Bandwidth
             - Delay
             - Node's Queue Size
@@ -78,19 +78,49 @@
             ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/0c67d641-32d9-47b7-9830-462a6b78846c)
 
 
-        - [9node-interest-100](Named-Data-Net/src/ndnSim-exam/9node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+        - [9node-interest-100](src/ndnSim-exam/9node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
             - Node's Routing Policy
 
 
             ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/13085061-9a50-4654-8e17-987433f5ec94)
 
 
-4. 실험 결과
-    - 여러개의 시나리오 파일을 한번에 실행시키기 위하여 bash 스크립트를 작성하여 시나리오 파일을 동작 시켰다. - [bash script](Named-Data-Net/src/Auto-Excution.sh)
+4. 필요한 Tracer Report 정보 확인
+    1. Average Latency
+        - 각 노드 간 패킷을 전달하는 Delay 정보를 기록하는 'AppDelayTracer'를 이용한다.
+        - 생성할 Report 파일의 이름을 설정하고 Report 내용을 확인한다.
+        ```
+        ndn::AppDelayTracer::InstallAll("AverageLatency-interest-100.txt"); // Tracer Report 파일명
+        ```
+        - Report 파일 마지막 FullDelay가 시뮬레이션의 총 평균 지연 시간이다.
+
+
+        ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/2870dcfa-835b-4f8b-b298-2ae351d09f57)
+
+
+        표시된 FullDelay의 단위는 micro 임을 주의해야한다.
+
+
+    2. Throughout
+        - 각 노드 간 패킷의 이동 속도 도착한 패킷의 수를 기록하는 'L3RateTracer'를 이용한다.
+        - 생성할 Report 파일의 이름을 설정하고 Report 내용을 확인한다.
+        ```
+        ndn::L3RateTracer::InstallAll("Troughput-6-node-interest-100.txt", Seconds(1.0)); // Tracer Report 파일명
+        ```
+        - Report 파일 내부에 가장 마지막에 존재하는 Indata Type의 KilobytesRaw는 마지막 평균 기간 내에 전송된 패킷의 양을 Kilobytes로 표현한 값이다. 즉 Throughput을 의미한다.
+
+
+        ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/12929de3-ccb3-4d1d-9a59-f363a7a993c6)
+
+
+5. 실험 결과
+    - 시나리오 파일이 매우 많기 때문에 bash 명령어를 자동으로 입력시켜줄 수 있는 프로그램을 만들었다.
+    [bash script](src/Auto-Excution.sh)
+
+
     - bash script는 아래와 같이 동작시킨다.
     ```
     // 위치는 ns-3 폴더에서 실행
     $ chmod +x Auto-Excution.sh
     $ ./Auto-Excution.sh
     ```
-    - Report.txt
