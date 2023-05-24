@@ -27,7 +27,7 @@
 
 
 2. 6-node bottle neck NDN network
-    1. 논문과 동일한 ndn Stack 으로 실험을 진행한다.
+    1. 실험을 위한 기초 설정
     - Bandwidth : 1Mbps (router1과 router2 사이)
     - Delay : 10 ms
     - Data Packet Size : 1024
@@ -63,23 +63,28 @@
 
         
 3. 9-node grid NDN network
-    - 9-node grid NDN network는 ndnSIM의 ndn-grid-topo-plugin.cpp 파일을 기반으로 실습을 진행할 예정이다.
-    1. 논문과 동일한 ndn Stack 으로 실험을 진행한다.
+    1. 실험을 위한 기초 설정
     - Bandwidth : 1 Mbps
     - Delay : 10 ms
-    - Node's Routing Policy : Best-route
     - Node's Queue Size : 10 chunk
+    - Node's Routing Policy : Best-route
         1. ndn Stack 설정법
-        - Bandwidth, Delay, Node's Queue Size는 시나리오파일의 Topology를 설정해주는 [topo-grid-3x3](Named-Data-Net\src\topologies\topo-grid-3x3.md) 파일을 통해 설정할 수 있다.
+        - [topo-grid-3x3.txt](Named-Data-Net\src\topologies\topo-grid-3x3.md) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+            - Bandwidth
+            - Delay
+            - Node's Queue Size
 
-        - Node's Routing Policy 는 ndn 시나리오 파일에서 아래 내용을 통해 바꿀 수 있다.
-        ```
-        ndn::StrategyChoiceHelper::InstallAll("/", "/localhost/nfd/strategy/best-route");
-        ```
-        [9node-interest](Named-Data-Net\src\ndnSim-exam\9node-interest-100.cpp) 참고
 
-        - interest 생성 크기를 100~1100 까지 100 단위로 실험을 진행하였다.
+            ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/0c67d641-32d9-47b7-9830-462a6b78846c)
 
+
+        - [9node-interest-100](Named-Data-Net\src\ndnSim-exam\9node-interest-100.cpp) 파일에서는 아래와 같은 ndn Stack을 수정할 수 있다.
+            - Node's Routing Policy
+
+
+            ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/13085061-9a50-4654-8e17-987433f5ec94)
+
+            
 4. 실험 결과
     - 여러개의 시나리오 파일을 한번에 실행시키기 위하여 bash 스크립트를 작성하여 시나리오 파일을 동작 시켰다. - [bash script](Named-Data-Net\src\Auto-Excution.sh)
     - bash script는 아래와 같이 동작시킨다.
