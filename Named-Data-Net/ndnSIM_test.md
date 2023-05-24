@@ -115,7 +115,9 @@
 
 5. 실험 결과
     - 시나리오 파일이 매우 많기 때문에 bash 명령어를 자동으로 입력시켜줄 수 있는 프로그램을 만들었다.
-    [bash script](src/Auto-Excution.sh)
+    
+    
+    자동 실행 프로그램 : [bash script](src/Auto-Excution.sh)
 
 
     - bash script는 아래와 같이 동작시킨다.
