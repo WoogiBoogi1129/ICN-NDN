@@ -32,5 +32,54 @@
 
 
 ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/e13d9646-82b3-4ae4-b578-665e067e9a15)
+- 논문에서 가정하는 네트워크 환경에 대한 수식
+    - ICN 노드 = r
+    - MEC 노드 = m
+    - 컨텐츠 요청 노드 = u
+    - u로 구성된 엣지 네트워크 = e
+    - 컨텐츠 요청 예상 빈도
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/cd880c25-3b1b-4cfe-a439-9700b0ec57e4)
+    - 예상 요청 빈도가 임계값 보다 높은 컨텐츠
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/ba56336c-8366-478b-a016-a7828a796776)
+    - MEC m에 속한 모든 요청 노드에 대해 컨첸츠 C를 전달하는 소비 비용
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/ab8ae54b-e3bd-4cc5-9c0d-aefc2cbb9bb2)
+        - a(c,m), a(c,r) = MEC, ICN 노드에서 컨텐츠 c의 캐싱 여부를 나타내는 값
+    - 소비 비용을 최소화 하기 위한 목적함수
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/e6b20cdf-8664-433d-9e0d-18b0411a803f)
+    - 목적함수의 제약 조건
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/f9176a0d-2958-4140-9c85-01f1c4fa25a0)
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/18d912f3-d8d1-4695-82fe-4fb98b56cd4b)
+    - 컨텐츠가 MEC 또는 ICN 노드에 적어도 하나 이상 캐싱 되어야 함
+    - MEC에 캐싱된 컨텐츠의 크기 합이 MEC의 저장 용량보다 작아야 함
+    - 위의 식들을 고려할 경우, 각 MEC가 최적화 문제를 해결하여 MEC에 캐싱할 컨텐츠를 결정함
+    - 엣지 네트워크에서 요청 가능성이 높은 컨텐츠를 캐싱하기 위해 SDN 컨트롤러는 주기적으로 컨텐츠 요청 빈도를 예상함
+    
+    
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/122389c7-6b56-4fec-a444-c8d21ecc34f9)
+    - 엣지 네트워크 내 컨텐츠 예상 요청 빈도가 임계값보다 높거나 서로 다른 MEC에 캐싱된 동일한 컨텐츠 개수가 임계값보다 큰 컨텐츠를 아래와 같이 표현
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/a4d4bb48-9fab-4cfc-b887-69bbe51343bd)
+    - 모든 요청 노드에 컨텐츠 c를 전달 시 소비 비용
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/e7fc3b51-34b9-47e7-bbdf-efa700fa13be)
+    - MEC, 엣지 네트워크에 연결된 ICN 노드, 일반 ICN 노드의 소비 비용을 모두 고려한 목적함수 및 제약사항
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/0a6b9d24-115c-4f8c-ae5f-4e6a4653416a)
+    - 위 식의 내용은 앞서 소개한 소비 비용의 목적함수와 해당 목적함수의 제약 내용과 큰 차이가 없다.
 ### 결론
+- 5G MEC 정보 중심 네트워크 환경에서 컨텐츠 예상 요청 빈도 기반 소비 비용 최소화 캐싱 방안을 제안함
+- 추후 메타 휴리스틱 알고리즘을 통해 제안 기법의 성능을 상세히 검증할 계획
 ### 추가의견
