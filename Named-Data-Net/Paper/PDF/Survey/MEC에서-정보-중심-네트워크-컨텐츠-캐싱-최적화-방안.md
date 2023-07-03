@@ -8,7 +8,7 @@
         - mMTC(Massive Machine Type Communications)
         - URLLC(Ultra-Reliable and Low Latency Communications)
 
-        
+
 - ICN(Information Centric Networking)
     - 컨텐츠 이름을 기반으로 라우팅을 수행하는 네트워크 기술
         - 해당 기술을 통해 컨텐츠 다운로드 시, 네트워크의 부하를 효과적으로 줄일 수 있다.
