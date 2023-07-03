@@ -29,8 +29,6 @@
         - SDN(Software Defined Network) 또는 MEC에서 계산된 컨텐츠 예상 요청 빈도를 기반으로 컨텐츠 전달 시 소비 비용을 최소화 하는 캐싱 최적화
 ### 본론
 - 연구에서 제안하는 네트워크 환경
-
-
 ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/e13d9646-82b3-4ae4-b578-665e067e9a15)
 ### 결론
 ### 추가의견
