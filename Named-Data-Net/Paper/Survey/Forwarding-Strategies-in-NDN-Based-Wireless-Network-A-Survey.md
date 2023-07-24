@@ -96,7 +96,7 @@
     - NDN Protocol의 원칙은 어떻게 이루어져 있는가?
         - Universality
             - 모든 네트워크 환경과 애플리케이션을 위한 공통 네트워크 프로토콜은 NDN이어야 한다. 이러한 이유로 NDN 패킷 형식은 확장 가능하고, 유연해야 한다.
-        - Data-Centricity and Data Immatability
+        - Data-Centricity and Data Immtability
             - Data 패킷은 정확하게 가져와야 하며, Interest 패킷을 사용하여 요청하는 NDN에 의해 고유한 이름을 가져야한다.
         - Securing Data Directly
             - 데이터 패킷은 안전해야 하며 이동성의 영향을 받지 않아야 한다.
