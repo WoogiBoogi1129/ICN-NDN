@@ -136,8 +136,125 @@
         - WMN
 
 
-- Forwarding in NDN Based Mobile Ad Hoc Networks
+- Forwarding in NDN based Mobile Ad Hoc Networks
     - MANET이란?
         - Mobile Ad Hoc Network의 약자로 모바일 디바이스들이 무선으로 연결되고 인프라 없이 지속적으로 자체 구축이 가능한 네트워크이다.
+    - MANET의 장점
+        - 다중 경로 가용성으로 인해 단일 장애 지점이 감소한다.
+        - 모바일 노드가 있는 곳이라면 어디던지 MANET을 생성할 수 있어, 확장성이 좋다.
+        - 인프라 구축을 하지 않아도 돼서 관리 비용이 절감된다.
     - MANET의 단점
         - 독립적으로 디바이스를 어느 방향으로든 이동하고 다른 디바이스와의 링크를 자주 변경하기 때문에 빠르게 변화하는 토폴로지에서 패킷 손실이 크게 발생한다.
+    - NDN 기반 MANET의 포워딩 전략
+
+
+    ![image](https://github.com/WoogiBoogi1129/ICN-NDN-Study/assets/110087545/d9b91a03-28af-4627-b7e6-f50444aa726f)
+    - NDN기반 포워딩 전략 내용
+        - Adaptive Forwarding
+            - 데이터 패킷에 대해 가능한 최적 경로가 검색된다.
+            - 각 경로별 최적 경로와 적합한 환경에 대해 색을 통해 구분하고 경로를 선정한다.
+            - SAF(Stochastic Adaptive Forwarding) 확률적 적응 포워딩
+                - 병목 현상과 링크 장애를 방지하는 목적의 포워딩 전략
+                - Interest 만족도 비율을 향상시켜 구현한다.
+            - PAF(Probability Aware Forwarding) 확률 인식 포워딩
+                - Ant Colony 최적화 기법을 최적화 하는 기법
+                - 패킷을 전달할 Face를 확률적으로 선택한다.
+                - Interest와 데이터는 Face의 성능을 조사할 때 사용한다.
+            - AFIRM(Adaptive Forwarding based Link Recovery for Mobility Support) 
+                - 데이터 가용성 및 이동성 문제를 해결하는 포워딩 전략이다.
+                - 생산자의 이동성으로 인한 패킷 손실을 줄인다.
+        - Blind Forwarding
+            - Flooding 메커니즘을 이용하여 Interest, 데이터 패킷이 네트워크 전체에 Flooding된다.
+            - 슬롯 랜덤, 거리 기반, 순수 무작위 지연 방식을 구현할 수 있다.
+            - Flooding으로 인한 패킷 충돌에 의한 문제를 피하기 위한 기법들이 개발되고 있다.
+                - 해당 기법의 기본 개념은 오버헤드된 동일 패킷을 삭제하는 것이다. 
+        - Aware Forwarding
+            - Interest, 데이터 패킷이 다음 Hop, 이웃 노드, 네트워크, 패킷이 통신 중인 콘텍스트, 위치, 공급자 등 다양한 환경을 인지한다.
+            - Next-Hop Aware Forwarding
+                - 다음 홉을 향해 Interest를 브로드캐스트하고 가장 먼 노드를 릴레이 노드로 선택한다.
+                - GACF(The Greedy Ant Colony Forwarding)
+                    - Interest와 Data를 사용하여 라우팅 및 포워딩 최적화를 진행한다.
+                    - 소비자가 생성하는 일반 패킷과 라우터가 생성하는 Hello 패킷을 활용하여 경로를 최적화 시킨다.
+                    - 네트워크 혼잡, 링크 장애, 동적 네트워크 토폴로지의 영향을 줄여주는 QoS 인식 포워딩 알고리즘이다.
+            - Provider Aware Forwarding
+                - 소비자는 둘 이상의 소스에서 콘텐츠를 가져와 공급자의 콘텐츠 검색 성능이 가장 우수한 소스를 선택한다.
+                - 주로 거리 인식 포워딩 기술을 기반으로 사용한다.
+                - 공급자가 둘 이상인 경우, 성능이 더 좋은 공급자에게만 허용 명령을 보냄으로써 가장 우수한 공급자를 사용할 수 있다.
+                - LFBL(Listen First Broadcast Later)
+                    - PIT, FIB, CS와 같은 분산형 포워딩 전략에 사용되는 테이블을 사용하지 않는다.
+                    - DT(Distance Table)이라는 필수 데이터 구조를 사용함
+                - Tactical MANET CCN
+                    - 콘텐츠 푸싱, 콘텐츠 풀링이라는 두가지 유형의 라우팅 체계를 서비스한다.
+                    - 제어 패킷을 사용하는 패킷 충돌 방지 메커니즘을 가지고 있음
+                - E-CHANET
+                    - 채널 불안정성, 동적 네트워크 토폴로지, 브로드캐스트 폭주 완화 문제 해결
+                    - 신뢰성, 에너지, 효율성, Interest 속도 제어
+                    - 위 두개 요소에 중점을 둔다.
+                - CHANET
+                - Mobile CCN
+            - Neighbor Aware Forwarding
+                - 노드가 다른 이웃 노드의 현재 상태를 고려하여 통신한다.
+                - 이웃 인식 포워딩을 사용하면 중복 메시지와 플러딩을 제어할 수 있다.
+                - NAIF
+                - BlooGo
+                - MADN(Multipath Ad-hoc Data Network)
+                - TOP-CCN
+                - BOND
+            - Geo Aware Forwarding
+                - 패킷 포워딩을 위한 방향 선택적 포워딩 방식이다.
+                - 발신자가 전달 전략을 결정함
+                - BREB(Best Route, Error Broadcast)
+                - LOMCF(Location-Aware on demand Mulitpath Caching and Forwarding)
+        - Energy Efficient Forwarding
+            - 개념
+                - MANET 통신 참여 개체는 노트북이나 휴대폰과 같은 에너지 제약이 존재한다. 에너지를 효율적으로 사용하기 위해서는 통신 참여 노드의 에너지 소비를 줄여 네트워크 효율성을 높여야한다. 해당 기능을 지원해주는 포워딩 기법이다.
+            - REMIF
+            - OEFS (On Demand Energy based Forwarding Strategy for Named Data Wireless Ad Hoc Networks)
+        - Congestion Control Forwarding
+            - Flooding으로 인한 네트워크 혼잡을 완화한다.
+            - SIRC
+            - Hop-by-Hop Interest Shaping
+            - HR-ICP(Hop-by-Hop and Receiver-Driven Interst Control Protocol)
+            - CHoPCoP
+            - PLA
+        - Comparative Analysis
+            - Next Hop Aware Forwarding
+                - AFIRM과 SAF는 가장 성능이 좋은 전략이다.
+            - Neighbor Aware Forwarding
+                - BOND & MADN : 이동홉 수를 줄이고 적격 포워딩 전략을 선택한다.
+                - BlooGo : 홉 단위 패킷 전달로 데이터 중복이 적은 결과를 얻었다.
+                - Top-CCN : 1 or 2홉 이웃 노드에 패킷을 전달하여 혼잡과 브로캐스트 폭주 제어가 가능하다.
+                - NAIF : Flooding으로 인한 오버헤드를 크게 줄이고 견고성을 향상시킨다.
+            - Geo Aware Forwarding
+                - LOMCF가 가장 우수한 전략이다.
+            - Provider Aware Forwarding
+                - REMIF은 에너지 효율성 측면에서 가장 우수한 전략이다.
+            - Energy Efficient Forwarding
+                - OEFS가 가장 우수한 전략이다.
+            - NDN 기반 MANET에서 가장 우수한 포워딩 전략 : E-CHANET / LOMCF
+
+
+- Forwarding in NDN based Vehicular Ad Hoc Networks
+    - VANET(Vehicular Ad Hoc Network)
+    - Applying NDN to VANETs
+    - Location Aware Forwarding
+    - Context Aware Forwarding
+    - Neighbor Aware Forwarding
+    - Link Stability Based Forwarding
+    - Flooding Based Forwarding
+    - Distance Aware Forwarding
+    - Comparative Analysis
+- Forwarding in NDN based Wireless Sensor Networks
+    - WSN(Wireless Sensor Network)
+    - Directed Diffusion
+    - DMIF(A Dual-mode Interest Forwarding Scheme)
+    - dd-NDN
+    - SLICT
+    - CCN-WSN
+    - GIF(Geogrphic Interest Forwarding)
+    - Comparative Analysis
+- Forwarding in NDN based Wireless Mesh Networks
+    - Forwarding Strategy
+    - Comparative Analysis
+- Key Issues and Open Challenges NDN Forwarding
+- Conclusion
