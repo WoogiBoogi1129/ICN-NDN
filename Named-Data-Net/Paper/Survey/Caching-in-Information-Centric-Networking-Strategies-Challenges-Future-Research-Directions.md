@@ -1,4 +1,4 @@
-# Caching in Information-Centric Networking: Stratgies, Challenges, and Future Research Directions
+# Caching in Information-Centric Networking: Strategies, Challenges, and Future Research Directions
 ## I. U. Din, S. Hassan, M. K. Khan, M. Guizani, O. Ghazali and A. Habbal, "Caching in Information-Centric Networking: Strategies, Challenges, and Future Research Directions," in IEEE Communications Surveys & Tutorials, vol. 20, no. 2, pp. 1443-1474, Secondquarter 2018, doi: 10.1109/COMST.2017.2787609.
 ### Introduction
 - 오늘날의 인터넷
@@ -108,7 +108,7 @@
     - 특정 기능은 다양한 방법으로 설계되고 있다.
     - Hash-Routing
         - Off-Path 캐싱을 위해 제안된 체계
-        - 콘텐츠 요청이 엣지 라우터에 도착하면 콘텐츠 식별자를 특정 캐싱 라우터에 매핑하는 해시 함수를 게산하여 해당 특정 라우터로 요청을 전달한다.
+        - 콘텐츠 요청이 엣지 라우터에 도착하면 콘텐츠 식별자를 특정 캐싱 라우터에 매핑하는 해시 함수를 계산하여 해당 특정 라우터로 요청을 전달한다.
         - 요청을 받은 라우터는 요청된 콘텐츠가 캐시에 유지되는 경우 사용자에게 반환하고 아니면 원본 소스를 전달한다.
         - 라우터가 요청된 콘텐츠를 사용자에게 전달할 때 콘텐츠 식별자와 연결된 해당 라우터만 콘텐츠를 캐시할 수 있다.
         - Hash Routing의 주요 목적은 해시 함수가 콘텐츠가 발견된 곳에 캐싱하도록 지시하기 때문에 캐싱 중복을 제거하는 역할을 한다.
@@ -118,11 +118,71 @@
         - Off-Path 캐싱 전략이다.
         - CIC는 콘텐츠가 여러 청크로 나뉘어 라우터와 같은 둘 이상의 노드에 캐싱된다.
             - 예를 들어 12개의 청크로 구성된 하나의 콘텐츠가 있고 라우터의 캐시용량이 6일 때, 청크는 분리되어 두 개의 라우터에 캐싱된다.
+    - Probabilistic Caching(ProbCache)
+        - TSI(Time Since Inception)이라는 필드와 TSB(Time Since Birth) 필드를 이용하여 네트워크 내의 캐시 데이터의 중복을 방지하는 기법
+        - 경로 내의 캐싱된 컨텐츠를 통해 중복을 없애려하므로 On-Path 기법인 것 같다.
+    - Breadcrumbs
+        - 콘텐츠를 다운로드할 때 라우팅 기록을 캐싱하기 위해 각 라우터에 Trail 이라는 요소를 생성하여 유지시킴
+    - Chunk Caching Location and Searching Scheme(CLS)
+        - Level 1에서 히트가 발생하였을 때, 요청된 청크를 Level-1 레벨 노드로 내려 캐싱하는 방법
+        - BreadCrubms 기법과 같이 라우팅 경로에 대한 기록을 저장함.
 - Multi-Level Caching
+    - 하나의 컨텐츠를 둘 이상의 위치에 캐싱시킴
+    - Leave Copy Everywhere(LCE)
+        - 요청 받아 전달되는 콘텐츠를 전달받은 모든 라우터에 해당 데이터를 캐싱함
+        - On-Path 캐싱에 속함
+        - Placement 캐싱에 속하고 LRU 또는 LFU의 Replacement 캐싱 기법을 통해 교체할 수 있음
+    - Prob
+        - 무작위 형태의 LCE 전략이다
 - Single Node-Based Caching
+    - 콘텐츠가 네트워크의 한 위치에만 캐시된다.
+    - Leave Copy Down(LCD)
+        - 히트가 발생한 노드의 바로 아래 쪽에 위치한 노드에만 캐싱이 된다.
+    - Move Copy Down(MCD)
+        - LCD와 유사하지만, 히트 발생 시, 기본 캐시가 아래 노드로 이동한다.
+    - Cache Aware Target Identification(CATT)
+        - Off-Path 캐싱 기법을 사용한다.
+        - 라우터가 콘텐츠 요청을 전달하는 데 도움이 되는 콘텐츠의 예상 품질을 추가한다.
+        - AS의 Edge에 CATN이라는 캐시 노드를 배포한다.
+    - Betweenness-Centrality
+        - 콘텐츠 경로를 따라 한번만 저장된다 (On-Path)
+        - 라우터를 통과하는 최단 경로의 수가 가장 많은 라우터에 저장된다.
+    - One-Touch Caching
+        - 모든 요청 컨텐츠를 캐싱하고 캐시 공간이 가득차면 무작위로 교체한다.
 - Popularity-Based Caching
+    - 콘텐츠의 엑세스 시간 등, 콘텐츠의 사전 정의된 임계갑을 도달하면 캐싱하는 방식
+    - Optimal Cache Placement Based on Content Popularity(OCPCP)
+        - 저장된 콘텐츠를 기반으로 들어오는 콘텐츠의 인기도를 계산하고, 인기도 값에 따라 새로운 콘텐츠를 저장
+    - Time Aware Least Recently Used(TLRU)
+        - 캐시 대체 정책인 LRU, LFU의 문제점을 극복하기 위해 제안됨
+        - 평균 요청 시간이 저장된 콘텐츠의 다임스탬프보다 작으면 도착하는 콘텐츠를 캐싱함
+    - Network Coding Based Cache Management(NCCM)
+        - 선형 네트워크 코딩(LNC)를 통해 라우팅과 캐싱 전략을 함께 고려함.
+    - WAVE
+        - 컨텐츠의 접속 횟수에 따라 청크가 구성된다.
+    - Most Popular Content(MPC)
+        - 인기도테이블(PT)를 이용하여 가장 큰 인기도를 가진 콘텐츠를 캐싱한다.
+    - Fine-Grained Popularity-Based Caching(FGPC)
+        - 캐시 공간이 가득차있지 않으면 모든 컨텐츠를 캐싱하고, 이후 캐시 공간이 가득찬 이후부터는 인기있는 콘텐츠만 저장한다.
 - IoT-Based Caching
+    - 기존 인터넷은 콘텐츠에 대한 요청을 해야 콘텐츠를 반환 받을 수 있었지만, IoT의 경우 콘텐츠를 원하는 상황이 발생했을 때, 기계가 동작을 시작하여 콘텐츠를 얻을 수 있다.
+    - Client-Cache
+        - 네트워크 노드에 캐싱된 콘텐츠의 유효성을 검사하는 전략
+        - 
+    - Tag-Based Caching Strategy(TCS)
+        - 태그 필터(TP)를 기반으로 포워딩 정보 및 콘텐츠 매칭을 조회한다.
+        - 콘텐츠 개체를 수신하면 해당 콘텐츠 개체를 캐시에 캐시할 지 여부를 결정한다.
+    - Fixed and Mobile converged network(FMC)
+        - 통합 엑세스 게이트웨이(UAG)로 작동하는 기능 노드를 통해 캐싱을 진행한다.
+    - Sleep-Based Caching
+        - 가장 최근 접속한 콘텐츠를 향후 사용을 위해 캐싱한다.
+        - 에너지 자원을 효율적으로 사용하기 위해 슬립 메커니즘을 사용하고 컨텐츠 선택, 교체 역할을 모두 해낸다.
+
 ### Summary of Caching Strategies
-### Performance Evaluation
-### Challenges and Future Research Directions
-### Conclusion
+- ICN 캐싱에는 Cooperative, Non-Cooperative, Homogeneous, Non-Homogeneous 등 다양한 유형이 포함된다.
+- Cooperative Caching에서는 캐시된 콘텐츠에 대한 정보가 인접 노드와 공유된다.
+- Non-Cooperative Caching에서는 각 노드가 정보를 공유하지 않고 캐싱 결정을 한다.
+- Homogeneous Caching에서는 퍼블리셔-구독자 경로의 모든 네트워크 노드가 동일한 콘텐츠를 캐싱한다.
+- Non-Homogeneous Caching에서는 퍼블리셔-구독자 경로의 모든 노드가 동일한 콘텐츠를 캐싱하지 않는다.
+- On-Path Caching에서는 퍼블리셔와-구독자 간 경로 상의 라우터에서만 캐싱을 결정한다.
+- Off-Path Caching에서는 퍼블리셔와-구독자 간 경로 외에도 인접 노드를 사용하여 캐싱을 수행한다.
