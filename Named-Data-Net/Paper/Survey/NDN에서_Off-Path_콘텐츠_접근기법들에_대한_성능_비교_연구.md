@@ -70,6 +70,120 @@
             - 수신한 Interest를 복사하여 여러 인터페이스로 전송한다.
 
 
-- 
+- Proactive Schemes
+    - 캐싱 과정
+        1. 각 라우터들은 로컬 캐시에 저장되어 있는 콘텐츠 정보들을 주변 라우터들에게 주기적으로 플로딩한다.
+        2. 플로딩 받은 정보들을 바탕으로 Interest를 수신한 라우터는 캐싱된 데이터가 있는 라우터에게 Interest를 포워딩할 수 있다.
+
+
+    - Proactive 기법의 단점
+        - 캐시 카탈로그를 플로딩하는 과정에서 네트워크 대역폭을 크게 소모할 수 있다.
+        - 플로딩 이벤트 사이 캐시에서 콘텐츠가 사라질 경우, Interest가 존재하지 않는 콘텐츠 쪽으로 포워딩될 수 있다.
+        - 주변 캐시정보들을 받아 처리하는 과정에서 오버헤드가 발생할 수 있다.
+
+
+    - Proactive 기법 종류
+        - Intra-AS Cooperative Caching
+            - 개요
+                - 동일한 콘텐츠가 AS(Autonomous System) 내의 라우터들 사이에서 여러 번 중복해서 저장되는 것을 막기위해 등장했다.
+
+
+            - 특징
+                - 라우터가 같은 AS 내의 이웃 라우터들에 저장된 콘텐츠 정보를 파악할 수 있다는 점을 통해 Interest는 Off-Path 캐시에 저장되어 있는 콘텐츠에 대한 접근이 가능해진다.
+                - 정보 교환의 범위를 AS 내로 제한함으로써 정보 교환에 따른 오버헤드를 줄일 수 있다.
+                - 정보 교환 과정에서 지연을 최소화할 수 있다.
+
+            
+        - Hashing to Map Content Names to Router
+            - 개요
+                - 콘텐츠의 이름을 Hashing 하여 그 결과에 따라 지정된 라우터에 콘텐츠를 저장하는 방법이다.
+
+            
+            - 특징
+                - 라우터가 Interest를 수신하면 Interest에 기록된 콘텐츠 이름으로 Hashing을 수행하여 그 결과값에 따라 특정 라우터 쪽으로 Interest 경로를 설정하여 Off-Path 캐시에 저장되어 있는 콘텐츠에 점근할 수 있다.
+                - 라우터들 간의 콘텐츠 정보를 교환하지 않아도 Off-Path 캐시에 접근할 수 있다.
+                - 여러 라우터들 간의 조직화 과정이 별도로 필요하다.
+                - Hashing 과정에서 콘텐츠의 인기도 및 다양한 특성들이 반영되기 어렵다.
+
+        
+        - Bloom Filter Based Information Exchange
+            - 개요
+                - Bloom Filter를 사용하여 캐시된 콘텐츠 정보를 교환한다.
+                    - Bloom Filter란?
+                        - 해싱 함수들을 사용한 확률형 자료 구조
+
+
+            - 특징
+                - Bloom Filter 사용 시, 캐시정보 전달과정에서 발생할 수 있는 오버헤드를 최소화할 수 있다.
+                - Bloom Filter 사용 시, false positive, false negative가 발생할 수 있는데 해당 경우, 콘텐츠들에 대한 정확한 정보 전달이 어려울 수 있다.
+
+
+- Reactive Schemes
+    - 캐싱 과정
+        - 라우터들이 수신한 Interest를 복사하여 여러 인터페이스로 내보낸다.
+    
+
+    - Reactive 기법 종류
+        - Exploration and Exploitation
+            - 개요
+                - FIB를 사용하여 Interest를 서버 쪽으로 전송하는 기본 라우팅 기법 이외에 Interest를 플로딩해서 Off-Path 캐시에 저장되어 있는 콘텐츠를 찾는 방법이다.
+
+                
+            - 특징
+                - 인기도가 높은 콘텐츠는 주변 캐시에 저장되어 있을 확률이 높기 때문에 Interest를 플로딩하여 콘텐츠를 주변 캐시에서 탐색한다.
+                - 인기도가 낮은 콘텐츠는 FIB를 활용하는 NDN 기본 라우팅 방법을 사용한다.
+                - 해당 방법들을 FIB의 크기를 줄일 수 있다.
+                - 인기 없는 콘텐츠에 대한 Exploration 과정에서 발생할 수 있는 리소스 낭비를 줄일 수 있다.
+
+
+        - INFORM
+            - 개요
+                - Exploration 과정에서 모든 인터페이스로 Interest를 플로딩할 경우, 오버헤드가 발생할 수 있다. 해당 문제를 해결하기 위해 기존 경로 상의 인터페이스 이외 추가적으로 하나의 인터페이스만 무작위로 선택하여 Interest 복사본을 전송하는 새로운 Exploration 기법이다.
+
+
+            - 특징
+                - Exploration 과정에서 수집된 정보를 바탕으로 콘텐츠별 최적 경로를 업데이트하고 해당 최적 경로를 다음번 Exploration을 수행할 때까지 사용한다.
+                - Interest를 전송하여 Response를 받기까지의 시간(RTT)을 기반으로 Q값을 게산하여 테이블에 저장한다.
+                - 해당 기법 또한 여전히 Exploration 과정에서 Interest의 중복 전송이 발생하게 된다.
+
+
+        - D-FIB
+            - 개요
+                - 콘텐츠를 사용자 방향으로 전달하면서 사용자 측 방향, 즉 콘텐츠가 전달된 방향을 테이블에 기록한다. 그 이후, 해당 콘텐츠에 대한 Interest를 수신할 경우, 테이블에 기록된 방향 쪽으로 Interest를 전송하여 캐시된 콘텐츠를 찾게 된다.
+
+            
+            - 특징
+                - FIB로 설정된 기존 경로 이외 D-FIB에 기록된 추가적인 경로들로도 Interest가 전송되어 중복된 데이터 전송이 발생할 수 있다.
+                - 전달되는 콘텐츠 정보를 테이블에 기록하면서 스토리지 오버헤드가 발생할 수 있다.
+
+
+        - DIVER
+            - 개요
+                - Exploration 과정에서 발생하는 콘텐츠 중복전송 문제를 해결하기 위해서 등장했다.
+                - Meta-Request를 사용한다.
+            
+
+            - 특징
+                - Exploration 과정에서 중복전송이 발생하는 이유
+                    - Interest 복사본이 여러 인터페이스로 전송되기 때문이다.
+                - Interest 대신 Meta-Interest를 전송하여 Interest를 전송하고 만약 해당 콘텐츠가 존재할 경우, GBF(Generalized Bloom Filter)를 사용하여 해당 콘텐츠들의 정보를 응답 메시지에 담아 전송한다.
+                - Meta-Interest를 전송하여 주변 캐시의 콘텐츠 정보를 수집하기 때문에 콘텐츠의 중복 전송을 발생시키지 않는다.
+                - GBF를 사용하여 정보 교환과정에서의 메시지 오버헤드 문제를 최소화할 수 있다.
+                - GBF 관련 연산을 수행하기 위해서는 추가적인 오버헤드가 발생할 수 있다.
+
+
+        - Network-coding enabled NDN
+            - 개요
+                - 네트워크 코딩 기법을 적용한 엑세스 기법이다.
+                - 네트워크 노드들이 동일한 콘텐츠에 속한 여러 Chunk에 대해 코딩 기법을 적용하여 Encoded Block을 생성한다.
+
+
+            - 특징
+                - 사용자는 콘텐츠를 구성하는 Chunk가 아닌 Block 단위로 Interst를 보낸다.
+                - 사용자가 가진 Encoded Block의 정보를 이용하여 라우터들이 Encoded Block을 제공하기 때문에 여러 라우팅 경로를 통해 Encoded Block이 중복되는 것이 아니라 데이터 중복현상을 최소화할 수 있다.
+                - Encoded Block을 생성하는 과정에서 큰 컴퓨팅 오버헤드가 발생할 수 있다.
+                - 콘텐츠 Chunk들을 순서대로 필요로 하는 Streaming 서비스 등에서는 Encoded Block 방식이 적합하지 않을 수 있다.
+
+
 ### Comparative Study using ndnSIM
 ### Discussion & Conclusion
