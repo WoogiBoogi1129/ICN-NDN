@@ -185,5 +185,10 @@
                 - 콘텐츠 Chunk들을 순서대로 필요로 하는 Streaming 서비스 등에서는 Encoded Block 방식이 적합하지 않을 수 있다.
 
 
-### Comparative Study using ndnSIM
 ### Discussion & Conclusion
+- Interest를 복사하여 기존 라우팅 경로 및 주변 캐시로 모두 전송하는 형태의 Proactive 기법이 캐시된 콘텐츠를 가장 많이 활용할 수 있는 방법이다.
+- 하지만, Interest 중복 전송에도 불구하고 교환된 정보의 유효성 문제로 Interest 재전송이 발생한다는 점과 Interest 복사에 따른 컨텐츠 중복 전송이 불가피하다는 한계가 있다.
+
+
+- Proactive 기법에서는 교환된 정보의 유효성을 효과적으로 보장하는 방법이 제안되어야 한다.
+- Reactive 기법에서는 Interest 복사본을 최소로 생성하고 효율적으로 캐시된 콘텐츠를 찾도록하는 방법이 필요하다.
