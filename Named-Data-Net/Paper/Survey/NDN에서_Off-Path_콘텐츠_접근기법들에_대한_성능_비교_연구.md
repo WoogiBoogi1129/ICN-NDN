@@ -57,6 +57,19 @@
 
 
 ### Access schemes for Off-path Cached Content in NDN
+- Off-Path의 문제점
+    - NDN 기본 라우팅 기법에서의 Interest는 경로 상의 라우터에만 캐싱될 수 있다. 이러한 점은 경로 외의 인접 노드에 캐시 데이터가 존재한다고 해도 접근할 수 없다는 의미이다.
+
+
+- Off-Path의 문제점을 해결하기 위한 방법
+    - 경로 외에 위치한 캐시를 활용할 수 있도록 Off-Path 캐시에 저장된 콘텐츠에 엑세스하는 기법이 제안되었다.
+        - Proactive
+            - 각각의 라우터들이 주기적으로 주변 라우터들의 캐시에 저장되어 있는 콘텐츠 정보를 파악한다.
+            - 주변 라우터 콘텐츠 정보를 통해 Interest 수신 시, 해당 콘텐츠가 캐싱되어 있는 라우터로 Interest를 포워딩한다.
+        - Reactive
+            - 수신한 Interest를 복사하여 여러 인터페이스로 전송한다.
+
+
 - 
 ### Comparative Study using ndnSIM
 ### Discussion & Conclusion
