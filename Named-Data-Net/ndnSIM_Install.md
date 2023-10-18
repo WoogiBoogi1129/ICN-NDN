@@ -71,7 +71,7 @@ ndnSIM 설치 및 예제 실습
     
     git에서 ndnSIM 그리고 ns-3와 관련된 리포지토리를 clone해온 후 ndnSIM Compile 진행
     $ cd ns-3
-    $ ./waf configure --disable-python --enable-examples
+    $ ./waf configure --enable-examples
     $ ./waf
     ```     
     ![image](https://user-images.githubusercontent.com/110087545/236212350-b340cffa-e346-4377-95e8-56be4f6deb30.png)   
